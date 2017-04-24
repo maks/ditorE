@@ -3,7 +3,7 @@ Simple java based editor to handle large files. Easily can open end edit huge fi
 like SQL dumps, server logs, XML dumps etc.
 
 ## Run
-- [Download file](https://github.com/lukaszgajos/ditorE/raw/master/editor/ditorE_0.9.jar)
+- [Download jar file](https://github.com/lukaszgajos/ditorE/raw/master/editor/ditorE_0.9.jar)
 - Run `java jar ditorE_0.9.jar`
 - Have fun
 
