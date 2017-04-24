@@ -10,6 +10,7 @@ like SQL dumps, server logs, XML dumps etc.
 ## Main features
 - Disk based editor, split file into chunks and load into memory only one
 - Tested with 25GB files but in theory should be able to read any size file
+- Open 25GB in less than second with only 150MB used memory
 - Open multiple files in tabs
 - Save sessions
 - Search/Replace
