@@ -4,7 +4,7 @@ like SQL dumps, server logs, XML dumps etc.
 
 ## Run
 - [Download jar file](https://github.com/lukaszgajos/ditorE/raw/master/editor/ditorE_0.9.jar)
-- Run `java jar ditorE_0.9.jar`
+- Run `java -jar ditorE_0.9.jar`
 - Have fun
 
 ## Main features
