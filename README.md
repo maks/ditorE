@@ -1,4 +1,5 @@
 # ditorE
+![logo](http://bit.ly/2peDsQp "Editor logo")
 Simple java based editor to handle large files. Easily can open end edit huge files
 like SQL dumps, server logs, XML dumps etc.
 
