@@ -1,5 +1,5 @@
 # ditorE
-Simple java based editor to handle large files. Easily can open end edit huge files
+Simple java based text editor to handle large files. Easily can open end edit huge files
 like SQL dumps, server logs, XML dumps etc.
 
 ## Run
@@ -8,7 +8,8 @@ like SQL dumps, server logs, XML dumps etc.
 - Have fun
 
 ## Main features
-- Disk based editor, split file into chunks and load into memory only one
+- Disk based text editor, split file into chunks and load into memory only one
+- Read/write, copy/cut/paste, fast and easy edit any size of file
 - Tested with 25GB files but in theory should be able to read any size file
 - Open 25GB in less than second with only 150MB used memory
 - Open multiple files in tabs
