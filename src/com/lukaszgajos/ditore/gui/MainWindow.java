@@ -194,8 +194,6 @@ public class MainWindow extends javax.swing.JFrame {
         menuItemEditSelectAll = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
-        menuItemEditPrevChunk = new javax.swing.JMenuItem();
-        menuItemEditNextChunk = new javax.swing.JMenuItem();
         menuItemEditClearHighlight = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         menuItemToolsSearchReplace = new javax.swing.JMenuItem();
@@ -203,6 +201,11 @@ public class MainWindow extends javax.swing.JFrame {
         menuItemToolsUppercase = new javax.swing.JMenuItem();
         menuItemToolsLowercase = new javax.swing.JMenuItem();
         menuItemToolsWordWrap = new javax.swing.JCheckBoxMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        menuItemEditPrevChunk = new javax.swing.JMenuItem();
+        menuItemEditNextChunk = new javax.swing.JMenuItem();
+        menuItemDocumentPrevTab = new javax.swing.JMenuItem();
+        menuItemDocumentNextTab = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -329,24 +332,6 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu2.add(jSeparator1);
         jMenu2.add(jSeparator5);
 
-        menuItemEditPrevChunk.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_LEFT, java.awt.event.InputEvent.ALT_MASK));
-        menuItemEditPrevChunk.setText("Prev chunk");
-        menuItemEditPrevChunk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemEditPrevChunkActionPerformed(evt);
-            }
-        });
-        jMenu2.add(menuItemEditPrevChunk);
-
-        menuItemEditNextChunk.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_RIGHT, java.awt.event.InputEvent.ALT_MASK));
-        menuItemEditNextChunk.setText("Next chunk");
-        menuItemEditNextChunk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemEditNextChunkActionPerformed(evt);
-            }
-        });
-        jMenu2.add(menuItemEditNextChunk);
-
         menuItemEditClearHighlight.setText("Clear highlight");
         menuItemEditClearHighlight.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -403,6 +388,46 @@ public class MainWindow extends javax.swing.JFrame {
         jMenu3.add(menuItemToolsWordWrap);
 
         jMenuBar1.add(jMenu3);
+
+        jMenu5.setText("Document");
+
+        menuItemEditPrevChunk.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_LEFT, java.awt.event.InputEvent.ALT_MASK));
+        menuItemEditPrevChunk.setText("Prev chunk");
+        menuItemEditPrevChunk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemEditPrevChunkActionPerformed(evt);
+            }
+        });
+        jMenu5.add(menuItemEditPrevChunk);
+
+        menuItemEditNextChunk.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_RIGHT, java.awt.event.InputEvent.ALT_MASK));
+        menuItemEditNextChunk.setText("Next chunk");
+        menuItemEditNextChunk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemEditNextChunkActionPerformed(evt);
+            }
+        });
+        jMenu5.add(menuItemEditNextChunk);
+
+        menuItemDocumentPrevTab.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_PAGE_UP, java.awt.event.InputEvent.CTRL_MASK));
+        menuItemDocumentPrevTab.setText("Prev tab");
+        menuItemDocumentPrevTab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemDocumentPrevTabActionPerformed(evt);
+            }
+        });
+        jMenu5.add(menuItemDocumentPrevTab);
+
+        menuItemDocumentNextTab.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_PAGE_DOWN, java.awt.event.InputEvent.CTRL_MASK));
+        menuItemDocumentNextTab.setText("Next tab");
+        menuItemDocumentNextTab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemDocumentNextTabActionPerformed(evt);
+            }
+        });
+        jMenu5.add(menuItemDocumentNextTab);
+
+        jMenuBar1.add(jMenu5);
 
         jMenu4.setText("Help");
 
@@ -628,12 +653,46 @@ public class MainWindow extends javax.swing.JFrame {
         dlg.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void menuItemDocumentPrevTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemDocumentPrevTabActionPerformed
+        
+        if (jTabbedPane1.getTabCount() == 1) {
+            return;
+        }
+        
+        int currentActive = jTabbedPane1.getSelectedIndex();
+        int switchTo = currentActive;
+        if (currentActive == 0) {
+            switchTo = jTabbedPane1.getTabCount() - 1;
+        } else {
+            switchTo = currentActive - 1;
+        }
+        
+        jTabbedPane1.setSelectedIndex(switchTo);
+    }//GEN-LAST:event_menuItemDocumentPrevTabActionPerformed
+
+    private void menuItemDocumentNextTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemDocumentNextTabActionPerformed
+        if (jTabbedPane1.getTabCount() == 1) {
+            return;
+        }
+        
+        int currentActive = jTabbedPane1.getSelectedIndex();
+        int switchTo = currentActive;
+        if (currentActive == jTabbedPane1.getTabCount() - 1) {
+            switchTo = 0;
+        } else {
+            switchTo = currentActive + 1;
+        }
+        
+        jTabbedPane1.setSelectedIndex(switchTo);
+    }//GEN-LAST:event_menuItemDocumentNextTabActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
@@ -642,6 +701,8 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JMenuItem menuItemDocumentNextTab;
+    private javax.swing.JMenuItem menuItemDocumentPrevTab;
     private javax.swing.JMenuItem menuItemEditClearHighlight;
     private javax.swing.JMenuItem menuItemEditCopy;
     private javax.swing.JMenuItem menuItemEditCut;
