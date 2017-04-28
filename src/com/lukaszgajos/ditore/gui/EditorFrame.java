@@ -88,6 +88,14 @@ public class EditorFrame extends javax.swing.JPanel {
         });
     }
     
+    public boolean saveNeed() {
+        
+        if (e.getTasks().size() > 0) {
+            return true;
+        }
+        
+        return false;
+    }
     
     public void editorUndo() {
         if (undoManager.canUndo()) {

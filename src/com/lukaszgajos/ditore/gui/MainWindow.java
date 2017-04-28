@@ -11,6 +11,7 @@ import com.lukaszgajos.ditore.task.FilterLines;
 import com.lukaszgajos.ditore.task.SearchReplace;
 import com.lukaszgajos.ditore.task.ToLower;
 import com.lukaszgajos.ditore.task.ToUpper;
+import java.awt.Component;
 import java.awt.FileDialog;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -29,6 +30,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileSystemView;
 
 public class MainWindow extends javax.swing.JFrame {
@@ -453,6 +455,16 @@ public class MainWindow extends javax.swing.JFrame {
     private void menuItemFileCloseFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemFileCloseFileActionPerformed
         
         int currentIndex = jTabbedPane1.getSelectedIndex();
+        
+        if (getCurrentEditor().saveNeed()) {
+            int result = JOptionPane.showConfirmDialog((Component) null, "Do you want to save file?", "ditorE", JOptionPane.YES_NO_CANCEL_OPTION);
+            if (result == JOptionPane.CANCEL_OPTION) {
+                return;
+            }
+            if (result == JOptionPane.YES_OPTION) {
+                menuItemFIleSaveAsActionPerformed(evt);
+            }
+        }
         
         jTabbedPane1.remove(currentIndex);
         tabsList.remove(currentIndex);
