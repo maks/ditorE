@@ -484,7 +484,11 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemEditNextChunkActionPerformed
 
     private void menuItemToolsFilterLinesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemToolsFilterLinesActionPerformed
+        
+        String selectedText = getCurrentEditor().getTextArea().getSelectedText();
+        
         FilterDialog dialog = new FilterDialog(getCurrentEditor().getEditor());
+        dialog.setFilterInput(selectedText);
         DialogResult result = dialog.showDialog();
         
         if (!result.exists("filter")) {
@@ -497,7 +501,11 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemToolsFilterLinesActionPerformed
 
     private void menuItemToolsSearchReplaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemToolsSearchReplaceActionPerformed
+        
+        String selectedText = getCurrentEditor().getTextArea().getSelectedText();
+        
         SearchDialog dialog = new SearchDialog(getCurrentEditor().getEditor());
+        dialog.setSearchInput(selectedText);
         DialogResult result = dialog.showDialog();
         
         if (!result.exists("q")) {

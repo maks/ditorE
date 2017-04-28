@@ -20,6 +20,10 @@ public class FilterDialog extends javax.swing.JDialog {
         getRootPane().setDefaultButton(filterButton);
     }
     
+    public void setFilterInput(String s) {
+        filterInput.setText(s);
+    }
+    
     public DialogResult showDialog() {
         
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -36,7 +40,7 @@ public class FilterDialog extends javax.swing.JDialog {
 
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        filterInput = new javax.swing.JTextField();
         filterButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
 
@@ -54,14 +58,14 @@ public class FilterDialog extends javax.swing.JDialog {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jTextField1)
+            .addComponent(filterInput)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(filterInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -117,7 +121,7 @@ public class FilterDialog extends javax.swing.JDialog {
 
     private void filterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterButtonActionPerformed
         
-        String str = jTextField1.getText();
+        String str = filterInput.getText();
         
         result.set("filter", str);
         
@@ -130,8 +134,8 @@ public class FilterDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
     private javax.swing.JButton filterButton;
+    private javax.swing.JTextField filterInput;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

@@ -22,6 +22,10 @@ public class SearchDialog extends javax.swing.JDialog {
         getRootPane().setDefaultButton(findButton);
     }
     
+    public void setSearchInput(String s) {
+        searchInput.setText(s);
+    }
+    
     public DialogResult showDialog() {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationByPlatform(true);
