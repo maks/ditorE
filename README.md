@@ -3,7 +3,7 @@ Simple java based text editor to handle large files. Easily can open end edit hu
 like SQL dumps, server logs, XML dumps etc.
 
 ## Run
-- [Download jar file](bit.ly/2qf5Pi8)
+- [Download jar file](http://bit.ly/2qf5Pi8)
 - Run `java -jar ditorE.jar`
 - Have fun
 
