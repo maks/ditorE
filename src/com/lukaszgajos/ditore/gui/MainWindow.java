@@ -94,6 +94,7 @@ public class MainWindow extends javax.swing.JFrame {
         }
         
         ArrayList<State> toRestore = new ArrayList<>();
+        boolean anyFileRestored = false;
         
         try {  
             ObjectInputStream in = new ObjectInputStream(new FileInputStream( sessionFilename ));
@@ -102,9 +103,13 @@ public class MainWindow extends javax.swing.JFrame {
             
             if (toRestore.size() > 0) {
                 for (State s : toRestore) {
-                    EditorFrame e = new EditorFrame(s);
-                    createTabWithEditor(s.getName(), e);
-                    e.reloadChunk();
+                    if (s.fileInExists()) {
+                        EditorFrame e = new EditorFrame(s);
+                        createTabWithEditor(s.getName(), e);
+                        e.reloadChunk();
+                        
+                        anyFileRestored = true;
+                    }
                 }
             }
             
@@ -118,7 +123,7 @@ public class MainWindow extends javax.swing.JFrame {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-        return true;
+        return anyFileRestored;
     }
 
     private void saveState() {

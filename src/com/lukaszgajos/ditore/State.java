@@ -10,6 +10,11 @@ public class State implements Serializable {
     public String fileOut;
     public ArrayList<EditorTask> tasks;
     
+    public boolean fileInExists() {
+        File f = new File(fileIn);
+        return f.exists();
+    }
+    
     public String getName() {
         File f = new File(fileIn);
         return f.getName();
