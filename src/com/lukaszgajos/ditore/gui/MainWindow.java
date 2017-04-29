@@ -496,8 +496,13 @@ public class MainWindow extends javax.swing.JFrame {
             }
         }
         
+        if (getCurrentEditor().useTemporaryFile()) {
+            getCurrentEditor().clearTemporaryFile();
+        }
+        
         jTabbedPane1.remove(currentIndex);
         tabsList.remove(currentIndex);
+        
         
         if (jTabbedPane1.getTabCount() == 0) {
             newEmpty();

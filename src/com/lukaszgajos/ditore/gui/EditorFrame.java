@@ -257,6 +257,12 @@ public class EditorFrame extends javax.swing.JPanel {
     public boolean useTemporaryFile() {
         return useTemporatyFile;
     }
+    
+    public void clearTemporaryFile() {
+        if (useTemporaryFile()) {
+            e.getDestFile().delete();
+        }
+    }
             
     public void setTextAreaFocus() {
         textArea.requestFocus();
